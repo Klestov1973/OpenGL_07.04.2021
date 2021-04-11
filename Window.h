@@ -30,6 +30,14 @@ public:
 
 	int getHeight() const {return _height;}
 	int getWidth() const {return _width;}
-};
 
+	void main_loop();
+
+	virtual void setup() {}
+		virtual void setup_gl() {}
+		virtual void update() {}
+		virtual void render() {}
+		virtual void handle_event(const SDL_Event& event) {}
+		virtual void handle_keys(const Uint8 * keys) {}
+};
 #endif /* WINDOW_H_ */
