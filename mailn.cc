@@ -14,7 +14,7 @@ int main(int, char **)
 {
 	std::cout << "Program started!" << std::endl;
 
-	std::cout <<"Programm ended!" <<  std::endl;
+	std::cout <<"Program ended!" <<  std::endl;
 	return 0;
 }
 
