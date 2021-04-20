@@ -21,6 +21,7 @@ public:
 	virtual void setup_gl() override;
 	virtual void render() override;
 	virtual void update() override;
+
 };
 
 #endif /* DEMOWINDOW_H_ */

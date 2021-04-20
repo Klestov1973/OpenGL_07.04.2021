@@ -15,6 +15,7 @@ DemoWindow::DemoWindow(int width, int height)
 
 void DemoWindow::setup_gl()
 {
+	glEnable(GL_DEPTH_TEST); // испавляет не правильное изображение
 	glClearColor(0.2f, 0.4f, 0.7f, 1.0f);
 
 	glMatrixMode(GL_PROJECTION);
@@ -26,19 +27,10 @@ void DemoWindow::setup_gl()
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void DemoWindow::render()
-{
-	glClear(GL_COLOR_BUFFER_BIT); // Очистка
-
-	glLoadIdentity(); // MV = единичная матрица
-
-	gluLookAt(	3.0, 4.0, 2.0,		// Координаты камеры
-				0.0, 0.0, 0.0,		// Координаты центра
-				0.0, 0.0, 1.0);		// Направление вверх,	MV = C
-
-	glRotated(_cube_angle, 0.0, 0.0, 1.0);
-
+void Cube(){
 	glBegin(GL_QUADS);
+
+	glEnable(GL_CULL_FACE);
 
 	glColor3d(1.0, 0.0, 0.0);		// Нижняя грань, красная
 	glVertex3d(-1.0,  1.0, -1.0);
@@ -46,11 +38,13 @@ void DemoWindow::render()
 	glVertex3d( 1.0, -1.0, -1.0);
 	glVertex3d(-1.0, -1.0, -1.0);
 
+
 	glColor3d(0.0, 1.0, 1.0);		// Верхняя грань, бирюзовая
 	glVertex3d(-1.0, -1.0,  1.0);
 	glVertex3d( 1.0, -1.0,  1.0);
 	glVertex3d( 1.0,  1.0,  1.0);
 	glVertex3d(-1.0,  1.0,  1.0);
+
 
 	glColor3d(0.0, 0.0, 1.0);		// Боковая грань 1, синяя
 		glVertex3d(-1.0, 1.0,  1.0);
@@ -77,7 +71,26 @@ void DemoWindow::render()
 		glVertex3d(1.0, 1.0, -1.0);
 
 	glEnd();
+	}
+
+void DemoWindow::render()
+{
+
+	glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT); // Очистка
+
+
+
+	glLoadIdentity(); // MV = единичная матрица
+
+	gluLookAt(	3.0, 4.0, 2.0,		// Координаты камеры
+				0.0, 0.0, 0.0,		// Координаты центра
+				0.0, 0.0, 1.0);		// Направление вверх,	MV = C
+
+
+	glRotated(_cube_angle, 0.0, 0.0, 1.0);
+	Cube();
 }
+
 
 void DemoWindow::update()
 {
