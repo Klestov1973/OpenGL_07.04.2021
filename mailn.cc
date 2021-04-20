@@ -1,11 +1,12 @@
 /*
  * mailn.cc
  *
- *  Created on: 11 апр. 2021 г.
+ *  Created on: 11 пїЅпїЅпїЅ. 2021 пїЅ.
  *      Author: admin
  */
 #include <iostream>
 #include <stdexcept>
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_main.h>
 
@@ -21,16 +22,15 @@ int main(int, char **)
 		DemoWindow w;
 
 		w.main_loop();
-			} catch (const std::exception& e) {
-				std::cerr << "При выполнении программы возникла ошибка:\n" <<
-						e.what() << std::endl;
-				return 1;
-			}
+	} catch (const std::exception& e) {
+		std::cerr << "РџСЂРё РІС‹РїРѕР»РЅРµРЅРёРё РїСЂРѕРіСЂР°РјРјС‹ РІРѕР·РЅРёРєР»Р° РѕС€РёР±РєР°:\n" <<
+				e.what() << std::endl;
+		return 1;
+	}
 
-			std::cout << "Program ended!" << std::endl;
-			return 0;
+	std::cout << "Program ended!" << std::endl;
+	return 0;
 }
-
 
 
 

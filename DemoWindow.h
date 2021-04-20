@@ -1,7 +1,7 @@
 /*
  * DemoWindow.h
  *
- *  Created on: 11 ΰοπ. 2021 γ.
+ *  Created on: 11 Π°ΠΏΡ€. 2021 Π³.
  *      Author: admin
  */
 
@@ -12,12 +12,15 @@
 
 class DemoWindow final : public Window
 {
+protected:
+	double _cube_angle { 0. };
 public:
 	DemoWindow(int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
 	virtual ~DemoWindow() = default;
 
-	virtual void setup_gl();
-	virtual void render();
+	virtual void setup_gl() override;
+	virtual void render() override;
+	virtual void update() override;
 };
 
 #endif /* DEMOWINDOW_H_ */

@@ -1,7 +1,7 @@
 /*
  * Window.cc
  *
- *  Created on: 11 апр. 2021 г.
+ *  Created on: 11 пїЅпїЅпїЅ. 2021 пїЅ.
  *      Author: admin
  */
 
@@ -23,7 +23,7 @@ Window::Window(int width, int height)
 			SDL_DestroyWindow);
 	if (_window == nullptr)
 		throw std::runtime_error(
-				"Не удалось создать окно: "s + SDL_GetError());
+				"РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РѕРєРЅРѕ: "s + SDL_GetError());
 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
@@ -32,7 +32,7 @@ Window::Window(int width, int height)
 			SDL_GL_DeleteContext);
 	if (_gl_context == nullptr)
 		throw std::runtime_error(
-				"Не удалось создать контекст OpenGL: "s + SDL_GetError());
+				"РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РєРѕРЅС‚РµРєСЃС‚ OpenGL: "s + SDL_GetError());
 }
 
 void Window::main_loop()
@@ -51,7 +51,7 @@ void Window::main_loop()
 		}
 		handle_keys(keys);
 
-		// TODO: возможно, имеет смысл этот update() вызывать по таймеру
+		// TODO: РІРѕР·РјРѕР¶РЅРѕ, РёРјРµРµС‚ СЃРјС‹СЃР» СЌС‚РѕС‚ update() РІС‹Р·С‹РІР°С‚СЊ РїРѕ С‚Р°Р№РјРµСЂСѓ
 		update();
 
 		render();
