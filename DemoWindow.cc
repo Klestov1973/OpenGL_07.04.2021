@@ -33,45 +33,45 @@ void Cube(){
 	glEnable(GL_CULL_FACE);
 
 	glColor3d(1.0, 0.0, 0.0);		// Нижняя грань, красная
-		glVertex3d(-0.5,  0.5, -0.5);
-		glVertex3d(0.5,  0.5, -0.5);
-		glVertex3d( 0.5, -0.5, -0.5);
-		glVertex3d(-0.5, -0.5, -0.5);
+		glVertex3d(-1.0,  1.0, -1.0);
+		glVertex3d(1.0,  1.0, -1.0);
+		glVertex3d( 1.0, -1.0, -1.0);
+		glVertex3d(-1.0, -1.0, -1.0);
 
 
 		glColor3d(0.0, 1.0, 1.0);		// Верхняя грань, бирюзовая
-		glVertex3d(-0.5, -0.5,  0.5);
-		glVertex3d( 0.5, -0.5,  0.5);
-		glVertex3d( 0.5,  0.5,  0.5);
-		glVertex3d(-0.5,  0.5,  0.5);
+		glVertex3d(-1.0, -1.0,  1.0);
+		glVertex3d( 1.0, -1.0,  1.0);
+		glVertex3d( 1.0,  1.0,  1.0);
+		glVertex3d(-1.0,  1.0,  1.0);
 
 
 		glColor3d(0.0, 0.0, 1.0);		// Боковая грань 1, синяя
-			glVertex3d(-0.5, 0.5,  0.5);
-			glVertex3d(-0.5, -0.5, 0.5);
-			glVertex3d(-0.5, -0.5, -0.5);
-			glVertex3d(-0.5,  0.5, -0.5);
+			glVertex3d(-1.0, 1.0,  1.0);
+			glVertex3d(-1.0, -1.0, 1.0);
+			glVertex3d(-1.0, -1.0, -1.0);
+			glVertex3d(-1.0,  1.0, -1.0);
 
 		glColor3d(1.0, 0.5, .0);		// Боковая грань 2, оранжевый
-			glVertex3d(-0.5, -0.5,  0.5);
-			glVertex3d(0.5, -0.5, 0.5);
-			glVertex3d(0.5, -0.5, -0.5);
-			glVertex3d(-0.5, -0.5, -0.5);
+			glVertex3d(-1.0, -1.0,  1.0);
+			glVertex3d(1.0, -1.0, 1.0);
+			glVertex3d(1.0, -1.0, -1.0);
+			glVertex3d(-1.0, -1.0, -1.0);
 
 		glColor3d(0.0, 1.0, 0.0);		// Боковая грань 3, зеленая
-			glVertex3d(0.5, -0.5,  0.5);
-			glVertex3d(0.5, -0.5, -0.5);
-			glVertex3d(0.5, 0.5, -0.5);
-			glVertex3d(0.5, 0.5, 0.5);
+			glVertex3d(1.0, -1.0,  1.0);
+			glVertex3d(1.0, -1.0, -1.0);
+			glVertex3d(1.0, 1.0, -1.0);
+			glVertex3d(1.0, 1.0, 1.0);
 
 		glColor3d(1.0, 1.0, 0.5);		// Боковая грань 4, желтый
-			glVertex3d(0.5, 0.5,  0.5);
-			glVertex3d(-0.5, 0.5, 0.5);
-			glVertex3d(-0.5, 0.5, -0.5);
-			glVertex3d(0.5, 0.5, -0.5);
-
+			glVertex3d(1.0, 1.0,  1.0);
+			glVertex3d(-1.0, 1.0, 1.0);
+			glVertex3d(-1.0, 1.0, -1.0);
+			glVertex3d(1.0, 1.0, -1.0);
 
 	glEnd();
+
 	}
 
 void DemoWindow::render()
@@ -89,26 +89,27 @@ void DemoWindow::render()
 
 
 	glRotated(_cube_angle, 0.0, 0.0, 1.0);
+	glScaled( 0.5, 0.5, 0.5 ); // машстабируемость
 
 
 	glPushMatrix();// сохраняем текущие координаты
 
-	glTranslated(0.0, 0.0, -0.5); // сдвигаемся по оси Y на -0.5
+	glTranslated(0.0, 0.0, -1.0); // сдвигаемся по оси Y на -0.5
 		Cube();
 
-	glTranslated(-1.2, 0.0, 0.0); // сдвигаемся по оси Х на -1.2
+	glTranslated(-2.5, 0.0, 0.0); // сдвигаемся по оси Х на -1.2
 	Cube();
 
-	glTranslated(2.4, 0.0, 0.0); // еще сдвигаемся по оси Х на 2.4
+	glTranslated(5.0, 0.0, 0.0); // еще сдвигаемся по оси Х на 2.4
 	Cube();
 
-	glTranslated(-0.6, 0.0, 1.0); // еще сдвигаемся по оси Х на -0.6 по оси Y на 1
+	glTranslated(-1.5, 0.0, 2.0); // еще сдвигаемся по оси Х на -0.6 по оси Y на 1
 	Cube();
 
-	glTranslated(-1.2, 0.0, 0.0); // еще сдвигаемся по оси Х на -0.6 по оси Y на 1
+	glTranslated(-2.5, 0.0, 0.0); // еще сдвигаемся по оси Х на -0.6 по оси Y на 1
 	Cube();
 
-	glTranslated(0.6, 0.0, 1.0); // еще сдвигаемся по оси Х на -0.6 по оси Y на 1
+	glTranslated(1.25, 0.0, 2.0); // еще сдвигаемся по оси Х на -0.6 по оси Y на 1
 	Cube();
 
 	glPopMatrix(); // возвращаемся к старой системе координат
